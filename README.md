@@ -15,9 +15,17 @@ Pastikan sistem Anda sudah memenuhi syarat berikut:
 
 > Instalasi dengan Docker dianggap sudah lanjut. Pastikan Anda terbiasa dengan Docker sebelum menjalankannya.
 
-## 1. Download file Compose resmi
+## 1. Download file Compose YAML
 
-Untuk mengikuti langkah resmi Passbolt, unduh file Compose dan checksum-nya:
+Unduh file Compose resmi Passbolt:
+
+```bash
+curl -LO https://github.com/passbolt/passbolt_docker/releases/latest/download/docker-compose-ce.yaml
+```
+
+## 2. Verifikasi file Compose resmi
+
+Unduh file checksum untuk memeriksa integritas file Compose:
 
 ```bash
 curl -LO https://github.com/passbolt/passbolt_docker/releases/latest/download/docker-compose-ce-SHA512SUM.txt
@@ -35,7 +43,7 @@ Hasil yang diharapkan:
 docker-compose-ce.yaml: OK
 ```
 
-## 2. Clone repositori dan siapkan environment
+## 3. Clone repositori dan siapkan environment
 
 ```bash
 git clone <repo-url>
@@ -66,7 +74,7 @@ EMAIL_TRANSPORT_DEFAULT_TLS=true
 
 Pastikan Anda menggunakan password yang kuat dan URL publik yang benar. Jangan pernah commit file `.env`; file ini sudah diabaikan oleh Git melalui `.gitignore`.
 
-## 3. Jalankan container
+## 4. Jalankan container
 
 ```bash
 docker compose up -d
@@ -79,7 +87,7 @@ docker compose ps
 docker compose logs -f
 ```
 
-## 4. Buat user admin pertama
+## 5. Buat user admin pertama
 
 Setelah container berjalan, buat user admin pertama dengan perintah berikut:
 
@@ -89,7 +97,7 @@ docker compose exec passbolt su -m -c "/usr/share/php/passbolt/bin/cake passbolt
 
 Perintah ini akan menghasilkan tautan pendaftaran yang dapat Anda buka di browser untuk menyelesaikan setup.
 
-## 5. Akses aplikasi
+## 6. Akses aplikasi
 
 Buka URL yang Anda set di `APP_FULL_BASE_URL`.
 
