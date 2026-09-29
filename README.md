@@ -43,10 +43,9 @@ Hasil yang diharapkan:
 docker-compose-ce.yaml: OK
 ```
 
-## 3. Clone repositori dan siapkan environment
+## 3. Siapkan environment
 
 ```bash
-git clone <repo-url>
 cd passbolt-deployment
 cp .env.example .env
 ```
